@@ -10,7 +10,7 @@
     <appender-ref ref="stdout" />
   </appender>
 
-  <root level="ERROR">
+  <root level="INFO">
     <appender-ref ref="async-stdout" />
   </root>
 

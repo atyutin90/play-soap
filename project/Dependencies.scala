@@ -1,5 +1,4 @@
-import sbt.Keys.libraryDependencies
-
+import sbt.Keys.{libraryDependencies, version}
 import sbt._
 
 object Dependencies {
@@ -11,7 +10,7 @@ object Dependencies {
 
   object Versions {
     val CXF  = "3.5.4"
-    val Play = "2.9.0-M2"
+    val Play = "2.8.18"
   }
 
   val `play-client` = libraryDependencies ++= Seq(
@@ -20,13 +19,17 @@ object Dependencies {
     "org.apache.cxf"     % "cxf-rt-transports-http-hc"    % Versions.CXF,
     "org.apache.cxf"     % "cxf-rt-transports-http"       % Versions.CXF  % Test,
     "org.apache.cxf"     % "cxf-rt-transports-http-jetty" % Versions.CXF  % Test,
-    "com.typesafe.play" %% "play-specs2"                  % Versions.Play % Test
+    "com.typesafe.play"  %% "play-specs2"                 % Versions.Play % Test,
+    "org.testcontainers" % "testcontainers"               % "1.17.6" % Test,
+    "org.junit.jupiter"  % "junit-jupiter"                % "5.9.0" % Test,
+    "org.testcontainers" % "junit-jupiter"                % "1.17.6" % Test
   )
 
   val plugin = libraryDependencies ++= Seq(
     "commons-codec"  % "commons-codec"                     % "1.15",
     "org.apache.cxf" % "cxf-tools-wsdlto-frontend-jaxws"   % Versions.CXF,
     "org.apache.cxf" % "cxf-tools-wsdlto-databinding-jaxb" % Versions.CXF,
-    "org.specs2"    %% "specs2-core"                       % "4.19.0" % Test
+    "com.typesafe.play" %% "play-specs2"                   % Versions.Play % Test,
+    "org.specs2"    %% "specs2-core"                       % "4.19.0" % Test,
   )
 }
